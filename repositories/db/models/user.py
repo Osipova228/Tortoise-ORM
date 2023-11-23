@@ -1,7 +1,7 @@
 from tortoise import fields
 from tortoise.models import Model
 from tortoise.contrib.pydantic import pydantic_model_creator
-from aiobcrypt import hashpw, checkpw
+from aiobcrypt import hashpw, checkpw, gensalt
 from enum import Enum
 
 
@@ -23,7 +23,9 @@ User_Pydantic = pydantic_model_creator(User, name='User')
 
 
 async def hash_password(password: str) -> str:
-    hashed_password = await hashpw(password.encode('utf-8'))
+    salt = await gensalt()
+
+    hashed_password = await hashpw(password.encode('utf-8'), salt)
     return hashed_password.decode('utf-8')
 
 

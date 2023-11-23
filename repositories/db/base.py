@@ -10,8 +10,8 @@ class BaseRepository:
 
     async def init(self):
         await self.tortoise_instance.init(
-            db_url=f'postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}',
-            modules={'models': ['internal.repositories.db.models']}
+            db_url=f'postgres://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}',
+            modules={'models': ['repositories.db.models']}
         )
         await self.tortoise_instance.generate_schemas()
 
