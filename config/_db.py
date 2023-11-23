@@ -1,5 +1,5 @@
-POSTGRES_DB = NotImplemented
-POSTGRES_USER = NotImplemented
-POSTGRES_PASSWORD = NotImplemented
-POSTGRES_HOST = NotImplemented
-POSTGRES_PORT = NotImplemented
+POSTGRES_DB = "postgres"
+POSTGRES_USER = "postgres"
+POSTGRES_PASSWORD = "admin"
+POSTGRES_HOST = "localhost"
+POSTGRES_PORT = "5432"
